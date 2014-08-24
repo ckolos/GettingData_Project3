@@ -21,6 +21,8 @@ The script run_analysis.R  will perform the following tasks:
 
 You will require approximately 330 MB of drive space for this script to perform correctly.
 
+The finished_data.txt will be left in ./data.
+
 The data represented in this code is courtesy of the following study:
 
 Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. 

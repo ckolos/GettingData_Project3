@@ -9,6 +9,8 @@
     # load the reshape2 library for melt/dcast
     library(reshape2)
 
+    startdir <- getwd()
+
     # Create data dir and switch there
     if(!file.exists("./data")) {
         dir.create("./data")
@@ -52,11 +54,11 @@
     # Use grep to match the columns that contain mean\\(|std\\(
     # which should be columns that have the mean() and std() applied
     # to them
-    wanted_columns<-grep('mean\\(|std\\(',data.names[,2],perl=TRUE,value=TRUE)
+    wanted.columns<-grep('mean\\(|std\\(',data.names[,2],perl=TRUE,value=TRUE)
 
     # Using wanted.columns[] as a vector, subset all.data into wanted.data
     # which will only contain mean and std measurements
-    wanted.data <- all.data[,wanted_columns]
+    wanted.data <- all.data[,wanted.columns]
 
     # read test and train subject data into temp frames
     test.subject <- read.table("test/subject_test.txt")
@@ -86,6 +88,10 @@
     # Read activity labels
     activity.names <- read.table("activity_labels.txt")
 
+    # Clean up activity names
+    activity.names[,2] <- gsub("_","",activity.names[,2])
+    activity.names[,2] <- tolower(activity.names[,2])
+
     # Factor activities and label appropriately
     Activity <- factor(activities[,1], labels=activity.names[,2])
 
@@ -99,7 +105,7 @@
     # of a different length than subject. The aggregate above produces the same data,
     # but the column names are not preserved. Not sure how to work around this.
 
-    wanted.melt <- melt(wanted.data, id=c("Subject","Activity"), measure.vars=wanted_columns)
+    wanted.melt <- melt(wanted.data, id=c("Subject","Activity"), measure.vars=wanted.columns)
 
     # dcast the data into a frame in Subject/Activity sort order
 
@@ -109,11 +115,26 @@
     numeric.vars <- sapply(finished, is.numeric)
     finished[numeric.vars] <- lapply(finished[numeric.vars], round, digits=4)
 
+    # Clean up var names
+    colnames(finished) <- gsub("^t","Time",colnames(finished))
+    colnames(finished) <- gsub("^f","Frequency",colnames(finished))
+    colnames(finished) <- gsub("Acc","Accelerometer",colnames(finished))
+    colnames(finished) <- gsub("Gyro","Gyroscope",colnames(finished))
+    colnames(finished) <- gsub("Mag","Magnitude",colnames(finished))
+    colnames(finished) <- gsub("mean","Mean",colnames(finished))
+    colnames(finished) <- gsub("std","StandardDeviation",colnames(finished))
+    colnames(finished) <- gsub("(X|Y|Z)$", "\\1_axis",colnames(finished))
+    colnames(finished) <- gsub("-","",colnames(finished))
+    colnames(finished) <- gsub("\\(","",colnames(finished))
+    colnames(finished) <- gsub("\\)","",colnames(finished))
+
     # All done with "UCI HAR Dataset", go back to ../ which should be "data"
     setwd("../")
 
     # Write this tidy data out to disk
     write.table(finished, "./finished_data.txt", row.names=FALSE)
+
+    setwd(startdir)
 
     # quit
     q()

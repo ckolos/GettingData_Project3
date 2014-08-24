@@ -7,113 +7,92 @@ Activity
   A factor representing one of the following possible activities tested:
 
     ID      Action
-     1       WALKING
-     2       WALKING_UPSTAIRS
-     3       WALKING_DOWNSTAIRS
-     4       SITTING
-     5       STANDING
-     6       LAYING
+     1       walking
+     2       walkingupstairs
+     3       walkingdownstairs
+     4       sitting
+     5       standing
+     6       laying
 
   Only the Action value is shown in the summary document.
 
 Variables:
   66 variables were extracted from the parent data sets. These variables are the mean
-  and standard deviation for the given measurement. Variable names beginning with 't'
-  are time based, while those beginning with 'f' are the result of a Fast Fourier Transform
-  done to the measurement. Measurements were recorded in each of the 3 principle dimensions,
-  with X being lateral, Y being vertical, and Z being depth. Please note, variable names
-  have not been altered from their original, fairly descriptive values.
+  and standard deviation for the given measurement.
 
-  tBodyAcc-mean()-X
-  tBodyAcc-mean()-Y
-  tBodyAcc-mean()-Z
+  Measurements were recorded in each of the 3 principle dimensions, with X being
+  lateral, Y being vertical, and Z being depth.
 
-  tBodyAcc-std()-X
-  tBodyAcc-std()-Y
-  tBodyAcc-std()-Z
+  Variable names have been translated to camel-case as all lower case was found 
+  to be hard to read. Below is a table showing the original variable and its
+  corresponding "fixed" name.
 
-  tGravityAcc-mean()-X
-  tGravityAcc-mean()-Y
-  tGravityAcc-mean()-Z
-
-  tGravityAcc-std()-X
-  tGravityAcc-std()-Y
-  tGravityAcc-std()-Z
-
-  tBodyAccJerk-mean()-X
-  tBodyAccJerk-mean()-Y
-  tBodyAccJerk-mean()-Z
-
-  tBodyAccJerk-std()-X
-  tBodyAccJerk-std()-Y
-  tBodyAccJerk-std()-Z
-
-  tBodyGyro-mean()-X
-  tBodyGyro-mean()-Y
-  tBodyGyro-mean()-Z
-
-  tBodyGyro-std()-X
-  tBodyGyro-std()-Y
-  tBodyGyro-std()-Z
-
-  tBodyGyroJerk-mean()-X
-  tBodyGyroJerk-mean()-Y
-  tBodyGyroJerk-mean()-Z
-
-  tBodyGyroJerk-std()-X
-  tBodyGyroJerk-std()-Y
-  tBodyGyroJerk-std()-Z
-
-  tBodyAccMag-mean()
-  tBodyAccMag-std()
-
-  tGravityAccMag-mean()
-  tGravityAccMag-std()
-
-  tBodyAccJerkMag-mean()
-  tBodyAccJerkMag-std()
-
-  tBodyGyroMag-mean()
-  tBodyGyroMag-std()
-
-  tBodyGyroJerkMag-mean()
-  tBodyGyroJerkMag-std()
-
-  fBodyAcc-mean()-X
-  fBodyAcc-mean()-Y
-  fBodyAcc-mean()-Z
-
-  fBodyAcc-std()-X
-  fBodyAcc-std()-Y
-  fBodyAcc-std()-Z
-
-  fBodyAccJerk-mean()-X
-  fBodyAccJerk-mean()-Y
-  fBodyAccJerk-mean()-Z
-
-  fBodyAccJerk-std()-X
-  fBodyAccJerk-std()-Y
-  fBodyAccJerk-std()-Z
-
-  fBodyGyro-mean()-X
-  fBodyGyro-mean()-Y
-  fBodyGyro-mean()-Z
-
-  fBodyGyro-std()-X
-  fBodyGyro-std()-Y
-  fBodyGyro-std()-Z
-
-  fBodyAccMag-mean()
-  fBodyAccMag-std()
-
-  fBodyBodyAccJerkMag-mean()
-  fBodyBodyAccJerkMag-std()
-
-  fBodyBodyGyroMag-mean()
-  fBodyBodyGyroMag-std()
-
-  fBodyBodyGyroJerkMag-mean()
-  fBodyBodyGyroJerkMag-std()
+  tBodyAcc-mean()-X          ==> TimeBodyAccelerometerMeanX_axis
+  tBodyAcc-mean()-Y          ==> TimeBodyAccelerometerMeanY_axis
+  tBodyAcc-mean()-Z          ==> TimeBodyAccelerometerMeanZ_axis
+  tBodyAcc-std()-X           ==> TimeBodyAccelerometerStandardDeviationX_axis
+  tBodyAcc-std()-Y           ==> TimeBodyAccelerometerStandardDeviationY_axis
+  tBodyAcc-std()-Z           ==> TimeBodyAccelerometerStandardDeviationZ_axis
+  tGravityAcc-mean()-X       ==> TimeGravityAccelerometerMeanX_axis
+  tGravityAcc-mean()-Y       ==> TimeGravityAccelerometerMeanY_axis
+  tGravityAcc-mean()-Z       ==> TimeGravityAccelerometerMeanZ_axis
+  tGravityAcc-std()-X        ==> TimeGravityAccelerometerStandardDeviationX_axis
+  tGravityAcc-std()-Y        ==> TimeGravityAccelerometerStandardDeviationY_axis
+  tGravityAcc-std()-Z        ==> TimeGravityAccelerometerStandardDeviationZ_axis
+  tBodyAccJerk-mean()-X      ==> TimeBodyAccelerometerJerkMeanX_axis
+  tBodyAccJerk-mean()-Y      ==> TimeBodyAccelerometerJerkMeanY_axis
+  tBodyAccJerk-mean()-Z      ==> TimeBodyAccelerometerJerkMeanZ_axis
+  tBodyAccJerk-std()-X       ==> TimeBodyAccelerometerJerkStandardDeviationX_axis
+  tBodyAccJerk-std()-Y       ==> TimeBodyAccelerometerJerkStandardDeviationY_axis
+  tBodyAccJerk-std()-Z       ==> TimeBodyAccelerometerJerkStandardDeviationZ_axis
+  tBodyGyro-mean()-X         ==> TimeBodyGyroscopeMeanX_axis
+  tBodyGyro-mean()-Y         ==> TimeBodyGyroscopeMeanY_axis
+  tBodyGyro-mean()-Z         ==> TimeBodyGyroscopeMeanZ_axis
+  tBodyGyro-std()-X          ==> TimeBodyGyroscopeStandardDeviationX_axis
+  tBodyGyro-std()-Y          ==> TimeBodyGyroscopeStandardDeviationY_axis
+  tBodyGyro-std()-Z          ==> TimeBodyGyroscopeStandardDeviationZ_axis
+  tBodyGyroJerk-mean()-X     ==> TimeBodyGyroscopeJerkMeanX_axis
+  tBodyGyroJerk-mean()-Y     ==> TimeBodyGyroscopeJerkMeanY_axis
+  tBodyGyroJerk-mean()-Z     ==> TimeBodyGyroscopeJerkMeanZ_axis
+  tBodyGyroJerk-std()-X      ==> TimeBodyGyroscopeJerkStandardDeviationX_axis
+  tBodyGyroJerk-std()-Y      ==> TimeBodyGyroscopeJerkStandardDeviationY_axis
+  tBodyGyroJerk-std()-Z      ==> TimeBodyGyroscopeJerkStandardDeviationZ_axis
+  tBodyAccMag-mean()         ==> TimeBodyAccelerometerMagnitudeMean
+  tBodyAccMag-std()          ==> TimeBodyAccelerometerMagnitudeStandardDeviation
+  tGravityAccMag-mean()      ==> TimeGravityAccelerometerMagnitudeMean
+  tGravityAccMag-std()       ==> TimeGravityAccelerometerMagnitudeStandardDeviation
+  tBodyAccJerkMag-mean()     ==> TimeBodyAccelerometerJerkMagnitudeMean
+  tBodyAccJerkMag-std()      ==> TimeBodyAccelerometerJerkMagnitudeStandardDeviation
+  tBodyGyroMag-mean()        ==> TimeBodyGyroscopeMagnitudeMean
+  tBodyGyroMag-std()         ==> TimeBodyGyroscopeMagnitudeStandardDeviation
+  tBodyGyroJerkMag-mean()    ==> TimeBodyGyroscopeJerkMagnitudeMean
+  tBodyGyroJerkMag-std()     ==> TimeBodyGyroscopeJerkMagnitudeStandardDeviation
+  fBodyAcc-mean()-X          ==> FrequencyBodyAccelerometerMeanX_axis
+  fBodyAcc-mean()-Y          ==> FrequencyBodyAccelerometerMeanY_axis
+  fBodyAcc-mean()-Z          ==> FrequencyBodyAccelerometerMeanZ_axis
+  fBodyAcc-std()-X           ==> FrequencyBodyAccelerometerStandardDeviationX_axis
+  fBodyAcc-std()-Y           ==> FrequencyBodyAccelerometerStandardDeviationY_axis
+  fBodyAcc-std()-Z           ==> FrequencyBodyAccelerometerStandardDeviationZ_axis
+  fBodyAccJerk-mean()-X      ==> FrequencyBodyAccelerometerJerkMeanX_axis
+  fBodyAccJerk-mean()-Y      ==> FrequencyBodyAccelerometerJerkMeanY_axis
+  fBodyAccJerk-mean()-Z      ==> FrequencyBodyAccelerometerJerkMeanZ_axis
+  fBodyAccJerk-std()-X       ==> FrequencyBodyAccelerometerJerkStandardDeviationX_axis
+  fBodyAccJerk-std()-Y       ==> FrequencyBodyAccelerometerJerkStandardDeviationY_axis
+  fBodyAccJerk-std()-Z       ==> FrequencyBodyAccelerometerJerkStandardDeviationZ_axis
+  fBodyGyro-mean()-X         ==> FrequencyBodyGyroscopeMeanX_axis
+  fBodyGyro-mean()-Y         ==> FrequencyBodyGyroscopeMeanY_axis
+  fBodyGyro-mean()-Z         ==> FrequencyBodyGyroscopeMeanZ_axis
+  fBodyGyro-std()-X          ==> FrequencyBodyGyroscopeStandardDeviationX_axis
+  fBodyGyro-std()-Y          ==> FrequencyBodyGyroscopeStandardDeviationY_axis
+  fBodyGyro-std()-Z          ==> FrequencyBodyGyroscopeStandardDeviationZ_axis
+  fBodyAccMag-mean()         ==> FrequencyBodyAccelerometerMagnitudeMean
+  fBodyAccMag-std()          ==> FrequencyBodyAccelerometerMagnitudeStandardDeviation
+  fBodyBodyAccJerkMag-mean() ==> FrequencyBodyBodyAccelerometerJerkMagnitudeMean
+  fBodyBodyAccJerkMag-std()  ==> FrequencyBodyBodyAccelerometerJerkMagnitudeStandardDeviation
+  fBodyBodyGyroMag-mean()    ==> FrequencyBodyBodyGyroscopeMagnitudeMean
+  fBodyBodyGyroMag-std()     ==> FrequencyBodyBodyGyroscopeMagnitudeStandardDeviation
+  fBodyBodyGyroJerkMag-mean()==> FrequencyBodyBodyGyroscopeJerkMagnitudeMean
+  fBodyBodyGyroJerkMag-std() ==> FrequencyBodyBodyGyroscopeJerkMagnitudeStandardDeviation
 
 
 Data users should be aware that the data represented has been summarized from a
