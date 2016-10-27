@@ -1,3 +1,4 @@
 {
-  "phabricator.uri": "https://nss-review.dev.mozaws.net/"
+  "phabricator.uri": "https://nss-review.dev.mozaws.net/",
+  "repository.callsign": "CKTEST"
 }
